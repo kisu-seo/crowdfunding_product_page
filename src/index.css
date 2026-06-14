@@ -1,0 +1,57 @@
+/* === Font Import === */
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
+
+/* === Tailwind Imports === */
+@import "tailwindcss";
+
+/* === Theme Customization === */
+@theme {
+  /* Colors */
+  --color-green-700: #147A73;
+  --color-green-400: #3CB3AB;
+  --color-green-50: #F3F8F8;
+  --color-gray-950: #2F2F2F;
+  --color-gray-800: #444444;
+  --color-gray-500: #7A7A7A;
+  --color-gray-400: #929292;
+  --color-gray-300: #B1B1B1;
+  --color-gray-200: #D9D9D9;
+  --color-gray-50: #FAFAFA;
+  
+  /* Fonts */
+  --font-commissioner: "Commissioner", system-ui, sans-serif;
+  
+  /* Spacing */
+  --spacing-100: 8px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-600: 48px;
+  --spacing-700: 56px;
+}
+
+/* === Base Layer === */
+body {
+  font-family: var(--font-commissioner);
+  background-color: var(--color-gray-50);
+  color: var(--color-gray-500);
+}
+
+/* === Utility Styles === */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.transition-custom {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom Animation (애니메이션 정의) */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
