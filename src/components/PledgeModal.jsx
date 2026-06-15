@@ -72,7 +72,7 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
 
       {/* === Modal Content Card (모달 콘텐츠 카드) === */}
       <div className="flex min-h-screen items-center justify-center p-6 md:py-24">
-        <div className="relative w-full max-w-2xl bg-white rounded-lg p-6 md:p-10 shadow-2xl z-10 transition-all transform duration-300">
+        <div className="relative w-full max-w-2xl bg-white rounded-lg py-[30px] px-6 md:px-10 shadow-2xl z-10 transition-all transform duration-300">
           
           {/* Header & Close Button (헤더 및 닫기 버튼) */}
           <div className="flex justify-between items-center">

@@ -36,23 +36,23 @@ export default function About({ rewards, onSelectReward }) {
               {/* Header Info (리워드 타이틀 및 최소 기부액) */}
               <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
                 <h3 className="text-[14px] font-bold text-black">{reward.name}</h3>
-                <span className="text-preset-6-medium text-[14px] text-green-400">Pledge ${reward.minPledge} or more</span>
+                <span className="font-medium text-[14px] leading-[1.2] tracking-[0px] text-green-400">Pledge ${reward.minPledge} or more</span>
               </div>
  
               {/* Description (설명 본문) */}
-              <p className="mt-6 text-preset-7-regular text-gray-500 md:text-preset-6-regular">{reward.description}</p>
+              <p className="mt-[16px] font-normal text-[14px] leading-[2.0] tracking-[0px] text-gray-500">{reward.description}</p>
 
               {/* Footer Info (남은 개수 및 선택 버튼) */}
-              <div className="mt-6 pt-6 border-t border-gray-100 flex flex-col md:flex-row md:justify-between md:items-center gap-6">
+              <div className="mt-6 flex flex-col md:flex-row md:justify-between md:items-center gap-6">
                 <div className="flex items-center gap-2">
-                  <span className="text-preset-2 text-gray-950">{reward.quantity}</span>
+                  <span className="font-bold text-[32px] leading-[1.2] tracking-[0px] text-black">{reward.quantity}</span>
                   <span className="text-preset-6-regular text-gray-500">left</span>
                 </div>
  
                 <button
                   disabled={isOutOfStock}
                   onClick={() => onSelectReward(reward.id)}
-                  className={`px-8 py-3.5 rounded-full text-preset-6-bold md:text-preset-5-bold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50 ${
+                  className={`w-[157px] h-[48px] flex items-center justify-center rounded-full font-bold text-[14px] leading-[1.2] tracking-[0px] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50 ${
                     isOutOfStock
                       ? "bg-gray-200 text-gray-400 cursor-not-allowed"
                       : "bg-green-400 hover:bg-green-700 text-white"

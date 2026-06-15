@@ -75,7 +75,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-gray-50/50 pb-20 font-commissioner antialiased">
+    <div className="relative min-h-screen bg-gray-50/50 pb-[76px] font-commissioner antialiased">
       {/* === Header Overlay (상단 헤더 네비게이션) === */}
       <Header />
 
