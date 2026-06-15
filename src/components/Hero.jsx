@@ -1,6 +1,6 @@
 export default function Hero({ isBookmarked, onToggleBookmark, onBackProject }) {
   return (
-    <section className="relative bg-white rounded-lg border-0 px-6 pb-[36px] text-center shadow-sm md:px-12" aria-labelledby="hero-title">
+    <section className="relative bg-white rounded-lg border border-gray-200 px-6 pb-[36px] text-center md:px-12" aria-labelledby="hero-title">
       {/* === Mastercraft Logo Emblem (마스터크래프트 로고 엠블럼) === */}
       <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-md">
         <img src="/images/logo-mastercraft.svg" alt="Mastercraft 엠블럼" className="w-14 h-14" />

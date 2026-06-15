@@ -1,13 +1,13 @@
 export default function About({ rewards, onSelectReward }) {
   return (
-    <section className="bg-white rounded-lg border border-gray-200/80 px-6 py-10 shadow-sm md:px-12 md:py-12" id="about" aria-labelledby="about-title">
+    <section className="bg-white rounded-lg border border-gray-200 px-6 py-[42px] md:px-12" id="about" aria-labelledby="about-title">
       {/* === Project Detail Heading (프로젝트 상세 설명 제목) === */}
-      <h2 id="about-title" className="text-preset-4 text-gray-950">
+      <h2 id="about-title" className="text-[18px] font-bold text-gray-950">
         About this project
       </h2>
       
       {/* === Project Detail Paragraphs (프로젝트 상세 설명 본문) === */}
-      <div className="mt-6 text-preset-7-regular text-gray-500 md:text-preset-6-regular space-y-6">
+      <div className="mt-[16px] text-[14px] font-normal text-gray-500 space-y-6">
         <p>
           The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen
           to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve
@@ -20,7 +20,7 @@ export default function About({ rewards, onSelectReward }) {
       </div>
 
       {/* === Reward Cards Container (리워드 카드 목록 컨테이너) === */}
-      <div className="mt-10 space-y-6">
+      <div className="mt-[24px] space-y-6">
         {rewards.map((reward) => {
           const isOutOfStock = reward.quantity === 0;
 
@@ -35,8 +35,8 @@ export default function About({ rewards, onSelectReward }) {
             >
               {/* Header Info (리워드 타이틀 및 최소 기부액) */}
               <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
-                <h3 className="text-preset-5-bold text-gray-950 md:text-preset-4">{reward.name}</h3>
-                <span className="text-preset-6-medium text-green-400">Pledge ${reward.minPledge} or more</span>
+                <h3 className="text-[14px] font-bold text-black">{reward.name}</h3>
+                <span className="text-preset-6-medium text-[14px] text-green-400">Pledge ${reward.minPledge} or more</span>
               </div>
  
               {/* Description (설명 본문) */}
