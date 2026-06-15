@@ -98,7 +98,7 @@ export default function App() {
       </div>
 
       {/* === Main Container (메인 컨텐츠 레이아웃) === */}
-      <main className="relative z-10 max-w-2xl mx-auto px-6 -mt-20 md:-mt-28 space-y-6">
+      <main className="relative z-10 max-w-2xl mx-auto px-6 -mt-[56px] space-y-6">
         
         {/* Hero Product Info Card (제품 개요 카드) */}
         <Hero 

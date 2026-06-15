@@ -2,12 +2,12 @@ export default function About({ rewards, onSelectReward }) {
   return (
     <section className="bg-white rounded-lg border border-gray-200/80 px-6 py-10 shadow-sm md:px-12 md:py-12" id="about" aria-labelledby="about-title">
       {/* === Project Detail Heading (프로젝트 상세 설명 제목) === */}
-      <h2 id="about-title" className="text-lg font-bold text-gray-950 md:text-xl">
+      <h2 id="about-title" className="text-preset-4 text-gray-950">
         About this project
       </h2>
       
       {/* === Project Detail Paragraphs (프로젝트 상세 설명 본문) === */}
-      <div className="mt-6 text-sm md:text-base text-gray-500 leading-relaxed space-y-6">
+      <div className="mt-6 text-preset-7-regular text-gray-500 md:text-preset-6-regular space-y-6">
         <p>
           The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen
           to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve
@@ -35,24 +35,24 @@ export default function About({ rewards, onSelectReward }) {
             >
               {/* Header Info (리워드 타이틀 및 최소 기부액) */}
               <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
-                <h3 className="font-bold text-base md:text-lg text-gray-950">{reward.name}</h3>
-                <span className="text-sm font-medium text-green-400">Pledge ${reward.minPledge} or more</span>
+                <h3 className="text-preset-5-bold text-gray-950 md:text-preset-4">{reward.name}</h3>
+                <span className="text-preset-6-medium text-green-400">Pledge ${reward.minPledge} or more</span>
               </div>
-
+ 
               {/* Description (설명 본문) */}
-              <p className="mt-6 text-sm md:text-base text-gray-500 leading-relaxed">{reward.description}</p>
+              <p className="mt-6 text-preset-7-regular text-gray-500 md:text-preset-6-regular">{reward.description}</p>
 
               {/* Footer Info (남은 개수 및 선택 버튼) */}
               <div className="mt-6 pt-6 border-t border-gray-100 flex flex-col md:flex-row md:justify-between md:items-center gap-6">
                 <div className="flex items-center gap-2">
-                  <span className="text-3xl font-bold text-gray-950">{reward.quantity}</span>
-                  <span className="text-sm text-gray-500">left</span>
+                  <span className="text-preset-2 text-gray-950">{reward.quantity}</span>
+                  <span className="text-preset-6-regular text-gray-500">left</span>
                 </div>
-
+ 
                 <button
                   disabled={isOutOfStock}
                   onClick={() => onSelectReward(reward.id)}
-                  className={`px-8 py-3.5 rounded-full font-bold text-sm md:text-base transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50 ${
+                  className={`px-8 py-3.5 rounded-full text-preset-6-bold md:text-preset-5-bold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50 ${
                     isOutOfStock
                       ? "bg-gray-200 text-gray-400 cursor-not-allowed"
                       : "bg-green-400 hover:bg-green-700 text-white"

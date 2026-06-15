@@ -1,17 +1,17 @@
 export default function Hero({ isBookmarked, onToggleBookmark, onBackProject }) {
   return (
-    <section className="relative bg-white rounded-lg border border-gray-200/80 px-6 pb-10 text-center shadow-sm md:px-12 md:pb-12" aria-labelledby="hero-title">
+    <section className="relative bg-white rounded-lg border-0 px-6 pb-[36px] text-center shadow-sm md:px-12" aria-labelledby="hero-title">
       {/* === Mastercraft Logo Emblem (마스터크래프트 로고 엠블럼) === */}
       <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-md">
         <img src="/images/logo-mastercraft.svg" alt="Mastercraft 엠블럼" className="w-14 h-14" />
       </div>
 
       {/* === Product Title & Description (제품 타이틀 및 설명) === */}
-      <div className="pt-14 pb-8">
-        <h1 id="hero-title" className="text-2xl font-bold text-gray-950 md:text-3xl tracking-tight">
-          Mastercraft Bamboo Monitor Riser
+      <div className="pt-[52px] pb-[24px]">
+        <h1 id="hero-title" className="text-preset-4 text-black">
+          Mastercraft Bamboo <br /> Monitor Riser
         </h1>
-        <p className="mt-4 text-sm md:text-base text-gray-500 leading-relaxed">
+        <p className="mt-4 text-[14px] font-normal text-gray-500">
           A beautiful & handcrafted monitor stand to reduce neck and eye strain.
         </p>
       </div>
@@ -21,7 +21,7 @@ export default function Hero({ isBookmarked, onToggleBookmark, onBackProject }) 
         {/* Back this project Button (프로젝트 후원하기 버튼) */}
         <button
           onClick={onBackProject}
-          className="flex-1 md:flex-none md:px-10 py-4 bg-green-400 hover:bg-green-700 text-white font-bold text-sm md:text-base rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50"
+          className="flex-1 md:flex-none md:px-10 py-4 bg-green-400 hover:bg-green-700 text-white text-preset-6-bold md:text-preset-5-bold rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50"
         >
           Back this project
         </button>
@@ -57,8 +57,8 @@ export default function Hero({ isBookmarked, onToggleBookmark, onBackProject }) 
           
           {/* Bookmark Text (북마크 텍스트 - 데스크탑에만 노출) */}
           <span 
-            className={`hidden md:inline pl-4 pr-6 font-bold text-sm transition-colors duration-200 ${
-              isBookmarked ? "text-green-700 font-bold" : "text-gray-500"
+            className={`hidden md:inline pl-4 pr-6 text-preset-6-bold transition-colors duration-200 ${
+              isBookmarked ? "text-green-700" : "text-gray-500"
             }`}
           >
             {isBookmarked ? "Bookmarked" : "Bookmark"}

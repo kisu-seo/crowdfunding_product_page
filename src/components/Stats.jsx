@@ -9,8 +9,8 @@ export default function Stats({ backedAmount, totalBackers, targetAmount = 10000
       <div className="flex flex-col md:flex-row md:text-left gap-8 md:gap-0 items-center justify-between text-center">
         {/* Backed Amount (총 모금액) */}
         <div className="md:w-1/3 md:pr-8">
-          <p className="text-3xl md:text-4xl font-bold text-gray-950">${formatNumber(backedAmount)}</p>
-          <p className="mt-2 text-xs md:text-sm text-gray-500">of ${formatNumber(targetAmount)} backed</p>
+          <p className="text-preset-2 text-gray-950">${formatNumber(backedAmount)}</p>
+          <p className="mt-2 text-preset-7-regular text-gray-500 md:text-preset-6-regular">of ${formatNumber(targetAmount)} backed</p>
         </div>
         
         {/* Mobile Separator (모바일 구분선) */}
@@ -20,8 +20,8 @@ export default function Stats({ backedAmount, totalBackers, targetAmount = 10000
 
         {/* Total Backers (총 후원자 수) */}
         <div className="md:w-1/3 md:px-8">
-          <p className="text-3xl md:text-4xl font-bold text-gray-950">{formatNumber(totalBackers)}</p>
-          <p className="mt-2 text-xs md:text-sm text-gray-500">total backers</p>
+          <p className="text-preset-2 text-gray-950">{formatNumber(totalBackers)}</p>
+          <p className="mt-2 text-preset-7-regular text-gray-500 md:text-preset-6-regular">total backers</p>
         </div>
 
         {/* Mobile Separator (모바일 구분선) */}
@@ -31,8 +31,8 @@ export default function Stats({ backedAmount, totalBackers, targetAmount = 10000
 
         {/* Days Left (남은 일수) */}
         <div className="md:w-1/3 md:pl-8">
-          <p className="text-3xl md:text-4xl font-bold text-gray-950">{daysLeft}</p>
-          <p className="mt-2 text-xs md:text-sm text-gray-500">days left</p>
+          <p className="text-preset-2 text-gray-950">{daysLeft}</p>
+          <p className="mt-2 text-preset-7-regular text-gray-500 md:text-preset-6-regular">days left</p>
         </div>
       </div>
 

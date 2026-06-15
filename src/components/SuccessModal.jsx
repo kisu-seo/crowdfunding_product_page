@@ -20,12 +20,12 @@ export default function SuccessModal({ isOpen, onClose }) {
           </div>
 
           {/* Heading (완료 헤더) */}
-          <h2 id="success-title" className="text-xl md:text-2xl font-bold text-gray-950">
+          <h2 id="success-title" className="text-preset-3 text-gray-950">
             Thanks for your support!
           </h2>
 
           {/* Info Text (안내 본문) */}
-          <p className="mt-4 text-sm md:text-base text-gray-500 leading-relaxed">
+          <p className="mt-4 text-preset-7-regular text-gray-500 md:text-preset-6-regular">
             Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
             an email once our campaign is completed.
           </p>
@@ -34,7 +34,7 @@ export default function SuccessModal({ isOpen, onClose }) {
           <div className="mt-8">
             <button
               onClick={onClose}
-              className="px-8 py-3.5 bg-green-400 hover:bg-green-700 text-white font-bold text-sm md:text-base rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50"
+              className="px-8 py-3.5 bg-green-400 hover:bg-green-700 text-white text-preset-6-bold md:text-preset-5-bold rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50"
             >
               Got it!
             </button>

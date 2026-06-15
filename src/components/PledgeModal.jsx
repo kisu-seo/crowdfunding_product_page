@@ -76,7 +76,7 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
           
           {/* Header & Close Button (헤더 및 닫기 버튼) */}
           <div className="flex justify-between items-center">
-            <h2 id="modal-title" className="text-lg md:text-xl font-bold text-gray-950">
+            <h2 id="modal-title" className="text-preset-4 text-gray-950">
               Back this project
             </h2>
             <button 
@@ -88,13 +88,13 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
             </button>
           </div>
 
-          <p className="mt-4 text-sm md:text-base text-gray-500 leading-relaxed">
+          <p className="mt-4 text-preset-7-regular text-gray-500 md:text-preset-6-regular">
             Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
           </p>
 
           {/* Validation Error Message (경고 메시지 출력) */}
           {validationError && (
-            <div className="mt-4 p-3 bg-red-50 border border-red-200 text-red-500 text-xs md:text-sm font-bold rounded-lg animate-fade-in">
+            <div className="mt-4 p-3 bg-red-50 border border-red-200 text-preset-7-medium text-red-500 rounded-lg animate-fade-in">
               ⚠️ {validationError}
             </div>
           )}
@@ -123,10 +123,10 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
                   className="mt-1 w-5 h-5 accent-green-400 cursor-pointer"
                 />
                 <div>
-                  <label htmlFor="pledge-no-reward" className="font-bold text-sm md:text-base text-gray-950 hover:text-green-400 cursor-pointer transition-colors block">
+                  <label htmlFor="pledge-no-reward" className="text-preset-6-bold md:text-preset-5-bold text-gray-950 hover:text-green-400 cursor-pointer transition-colors block">
                     Pledge with no reward
                   </label>
-                  <p className="mt-3 text-xs md:text-sm text-gray-500 leading-relaxed">
+                  <p className="mt-3 text-preset-7-regular text-gray-500 md:text-preset-6-regular">
                     Choose to support us without a reward if you simply believe in our project. As a backer,
                     you will be signed up to receive product updates via email.
                   </p>
@@ -136,7 +136,7 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
               {/* Input section (결제 금액 인풋 영역) */}
               {activeRewardId === 'no_reward' && (
                 <div className="bg-gray-50/80 p-6 border-t border-gray-100 flex flex-col md:flex-row md:justify-between md:items-center gap-4 animate-fade-in">
-                  <span className="text-xs md:text-sm text-gray-500 text-center md:text-left">Enter your pledge</span>
+                  <span className="text-preset-7-regular text-gray-500 md:text-preset-6-regular text-center md:text-left">Enter your pledge</span>
                   <div className="flex items-center justify-center gap-4">
                     <div className="relative flex items-center">
                       <span className="absolute left-6 text-gray-300 font-bold text-sm">$</span>
@@ -145,12 +145,12 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
                         min="1"
                         value={pledgeValues.no_reward}
                         onChange={(e) => handleInputChange('no_reward', e.target.value)}
-                        className="pl-9 pr-4 py-3 w-28 bg-white border border-gray-200 rounded-full font-bold text-sm text-gray-950 focus:outline-none focus:border-green-400"
+                        className="pl-9 pr-4 py-3 w-28 bg-white border border-gray-200 rounded-full text-preset-6-bold text-gray-950 focus:outline-none focus:border-green-400"
                       />
                     </div>
                     <button
                       onClick={() => handlePledgeSubmit('no_reward')}
-                      className="px-6 py-3 bg-green-400 hover:bg-green-700 text-white font-bold text-sm rounded-full transition-colors focus:outline-none"
+                      className="px-6 py-3 bg-green-400 hover:bg-green-700 text-white text-preset-6-bold rounded-full transition-colors focus:outline-none"
                     >
                       Continue
                     </button>
@@ -193,30 +193,30 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
                       <div className="flex flex-col md:flex-row md:items-center gap-2">
                         <label 
                           htmlFor={`pledge-${reward.id}`} 
-                          className={`font-bold text-sm md:text-base text-gray-950 transition-colors block ${
+                          className={`text-preset-6-bold md:text-preset-5-bold text-gray-950 transition-colors block ${
                             isOutOfStock ? "cursor-not-allowed" : "hover:text-green-400 cursor-pointer"
                           }`}
                         >
                           {reward.name}
                         </label>
-                        <span className="text-xs md:text-sm font-medium text-green-400">Pledge ${reward.minPledge} or more</span>
+                        <span className="text-preset-7-medium md:text-preset-6-medium text-green-400">Pledge ${reward.minPledge} or more</span>
                         
                         {/* Desktop Count (우측에 노출되는 수량 표시) */}
                         <div className="hidden md:flex items-center gap-1.5 ml-auto">
-                          <span className="font-bold text-gray-950 text-base">{reward.quantity}</span>
-                          <span className="text-xs text-gray-500">left</span>
+                          <span className="text-preset-5-bold text-gray-950">{reward.quantity}</span>
+                          <span className="text-preset-7-regular text-gray-500">left</span>
                         </div>
                       </div>
 
                       {/* Description */}
-                      <p className="mt-3 text-xs md:text-sm text-gray-500 leading-relaxed">
+                      <p className="mt-3 text-preset-7-regular text-gray-500 md:text-preset-6-regular">
                         {reward.description}
                       </p>
 
                       {/* Mobile Count (모바일 하단에 노출되는 수량 표시) */}
                       <div className="mt-4 flex items-center gap-1.5 md:hidden">
-                        <span className="font-bold text-gray-950 text-xl">{reward.quantity}</span>
-                        <span className="text-xs text-gray-500">left</span>
+                        <span className="text-preset-4 text-gray-950">{reward.quantity}</span>
+                        <span className="text-preset-7-regular text-gray-500">left</span>
                       </div>
                     </div>
                   </div>
@@ -224,7 +224,7 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
                   {/* Input section (결제 금액 인풋 영역) */}
                   {isSelected && !isOutOfStock && (
                     <div className="bg-gray-50/80 p-6 border-t border-gray-100 flex flex-col md:flex-row md:justify-between md:items-center gap-4 animate-fade-in">
-                      <span className="text-xs md:text-sm text-gray-500 text-center md:text-left">Enter your pledge</span>
+                      <span className="text-preset-7-regular text-gray-500 md:text-preset-6-regular text-center md:text-left">Enter your pledge</span>
                       <div className="flex items-center justify-center gap-4">
                         <div className="relative flex items-center">
                           <span className="absolute left-6 text-gray-300 font-bold text-sm">$</span>
@@ -233,12 +233,12 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
                             min={reward.minPledge}
                             value={pledgeValues[reward.id]}
                             onChange={(e) => handleInputChange(reward.id, e.target.value)}
-                            className="pl-9 pr-4 py-3 w-28 bg-white border border-gray-200 rounded-full font-bold text-sm text-gray-950 focus:outline-none focus:border-green-400"
+                            className="pl-9 pr-4 py-3 w-28 bg-white border border-gray-200 rounded-full text-preset-6-bold text-gray-950 focus:outline-none focus:border-green-400"
                           />
                         </div>
                         <button
                           onClick={() => handlePledgeSubmit(reward.id)}
-                          className="px-6 py-3 bg-green-400 hover:bg-green-700 text-white font-bold text-sm rounded-full transition-colors focus:outline-none"
+                          className="px-6 py-3 bg-green-400 hover:bg-green-700 text-white text-preset-6-bold rounded-full transition-colors focus:outline-none"
                         >
                           Continue
                         </button>

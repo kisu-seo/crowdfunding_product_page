@@ -16,7 +16,7 @@ export default function Header() {
         </a>
 
         {/* Desktop Menu (데스크탑 메뉴) */}
-        <nav className="hidden md:flex gap-8 text-white font-medium" aria-label="데스크탑 주 메뉴">
+        <nav className="hidden md:flex gap-8 text-white text-preset-6-medium" aria-label="데스크탑 주 메뉴">
           <a href="#about" className="hover:underline opacity-80 hover:opacity-100 transition-opacity">About</a>
           <a href="#discover" className="hover:underline opacity-80 hover:opacity-100 transition-opacity">Discover</a>
           <a href="#get-started" className="hover:underline opacity-80 hover:opacity-100 transition-opacity">Get Started</a>
@@ -33,7 +33,7 @@ export default function Header() {
           <img
             src={isOpen ? "/images/icon-close-menu.svg" : "/images/icon-hamburger.svg"}
             alt=""
-            className="w-4 h-4 object-contain"
+            className="w-[16px] h-[16px] object-contain"
           />
         </button>
       </div>
@@ -56,21 +56,21 @@ export default function Header() {
           >
             <a
               href="#about"
-              className="px-6 py-6 text-lg font-bold text-gray-950 hover:bg-gray-50 transition-colors"
+              className="px-6 py-6 text-preset-4 text-gray-950 hover:bg-gray-50 transition-colors"
               onClick={toggleMenu}
             >
               About
             </a>
             <a
               href="#discover"
-              className="px-6 py-6 text-lg font-bold text-gray-950 hover:bg-gray-50 transition-colors"
+              className="px-6 py-6 text-preset-4 text-gray-950 hover:bg-gray-50 transition-colors"
               onClick={toggleMenu}
             >
               Discover
             </a>
             <a
               href="#get-started"
-              className="px-6 py-6 text-lg font-bold text-gray-950 hover:bg-gray-50 transition-colors"
+              className="px-6 py-6 text-preset-4 text-gray-950 hover:bg-gray-50 transition-colors"
               onClick={toggleMenu}
             >
               Get Started
