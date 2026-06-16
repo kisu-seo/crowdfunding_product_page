@@ -71,7 +71,7 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
       />
 
       {/* === Modal Content Card (모달 콘텐츠 카드) === */}
-      <div className="flex min-h-screen items-start md:items-center justify-center px-6 pb-6 pt-[120px] md:py-24">
+      <div className="flex min-h-screen items-start md:items-start justify-center px-6 pb-6 pt-[120px] md:pt-[184px] md:pb-6">
         <div className="relative w-full max-w-2xl bg-white rounded-lg py-[30px] px-6 md:pt-[47px] md:pb-[44px] md:px-[44px] shadow-2xl z-10 transition-all transform duration-300">
           
           {/* Header & Close Button (헤더 및 닫기 버튼) */}
@@ -111,7 +111,7 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
               }`}
             >
               <div 
-                className="w-[279px] md:w-full py-[30.5px] px-6 md:py-[31.5px] md:px-[29px] grid grid-cols-[24px_1fr] gap-x-4 md:gap-x-6 gap-y-4 rounded-[8px] cursor-pointer hover:bg-gray-50/50"
+                className="w-[279px] md:w-full py-[30.5px] px-6 md:py-[31.5px] md:px-[29px] grid grid-cols-[24px_1fr] gap-x-4 md:gap-x-6 gap-y-4 md:gap-y-2 rounded-[8px] cursor-pointer hover:bg-gray-50/50"
                 onClick={() => handleSelectReward('no_reward')}
               >
                 {/* 좌측: 라디오 버튼 */}
@@ -145,22 +145,22 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
 
               {/* Input section (결제 금액 인풋 영역) */}
               {activeRewardId === 'no_reward' && (
-                <div className="py-[25px] px-6 md:p-6 border-t border-[#979797]/15 flex flex-col md:flex-row md:justify-between md:items-center gap-4 animate-fade-in">
+                <div className="py-[25px] px-6 md:py-[25px] md:px-[29px] border-t border-[#979797]/15 flex flex-col md:flex-row md:justify-between md:items-center gap-4 animate-fade-in">
                   <span className="text-preset-8-regular md:text-preset-7-regular text-gray-500 text-center md:text-left">Enter your pledge</span>
-                  <div className="flex items-center justify-center gap-4">
-                    <div className="w-[100px] h-[48px] md:w-28 md:h-auto relative flex items-center">
-                      <span className="absolute left-6 text-black/25 md:text-gray-300 text-preset-8-bold md:text-preset-7-medium md:font-bold">$</span>
+                  <div className="flex items-center justify-center gap-4 md:gap-4">
+                    <div className="w-[100px] h-[48px] md:w-[100px] md:h-[48px] relative flex items-center">
+                      <span className="absolute left-6 text-black/25 md:text-gray-300 text-preset-8-bold md:text-preset-8-bold">$</span>
                       <input
                         type="number"
                         min="1"
                         value={pledgeValues.no_reward}
                         onChange={(e) => handleInputChange('no_reward', e.target.value)}
-                        className="w-full h-full md:w-28 md:py-3 pl-9 pr-4 bg-white border border-gray-200 rounded-full text-preset-8-bold md:text-preset-6-bold text-black md:text-gray-950 focus:outline-none focus:border-green-400"
+                        className="w-full h-full md:w-[100px] md:h-[48px] pl-9 pr-4 bg-white border border-gray-200 rounded-full text-preset-8-bold md:text-preset-8-bold text-black md:text-gray-950 focus:outline-none focus:border-green-400"
                       />
                     </div>
                     <button
                       onClick={() => handlePledgeSubmit('no_reward')}
-                      className="w-[115px] h-[48px] flex items-center justify-center p-0 md:w-auto md:h-auto md:px-6 md:py-3 bg-green-400 hover:bg-green-700 text-white text-preset-8-bold md:text-preset-6-bold rounded-full transition-colors focus:outline-none"
+                      className="w-[115px] h-[48px] flex items-center justify-center p-0 md:w-[107px] md:h-[48px] md:p-0 bg-green-400 hover:bg-green-700 text-white text-preset-8-bold md:text-preset-8-bold rounded-full transition-colors focus:outline-none"
                     >
                       Continue
                     </button>
@@ -186,7 +186,7 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
                   }`}
                 >
                   <div 
-                    className={`w-[279px] md:w-full py-[30.5px] px-6 md:py-[31.5px] md:px-[29px] grid grid-cols-[24px_1fr] gap-x-4 md:gap-x-6 gap-y-4 rounded-[8px] ${
+                    className={`w-[279px] md:w-full py-[30.5px] px-6 md:py-[31.5px] md:px-[29px] grid grid-cols-[24px_1fr] gap-x-4 md:gap-x-6 gap-y-4 md:gap-y-2 rounded-[8px] ${
                       isOutOfStock ? "cursor-not-allowed" : "cursor-pointer hover:bg-gray-50/50"
                     }`}
                     onClick={() => !isOutOfStock && handleSelectReward(reward.id)}
@@ -224,12 +224,16 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
                         >
                           {reward.name}
                         </label>
-                        <span className="text-preset-8-medium md:text-preset-6-bold text-green-400">Pledge ${reward.minPledge} or more</span>
+                        <span className={`text-preset-8-medium text-green-400 ${
+                          isSelected ? 'md:text-preset-6-bold' : 'md:text-preset-6-medium'
+                        }`}>
+                          Pledge ${reward.minPledge} or more
+                        </span>
                       </div>
                       
                       {/* Desktop Count (우측에 노출되는 수량 표시) */}
                       <div className="hidden md:flex items-center gap-1.5">
-                        <span className="text-preset-7-medium font-bold text-gray-950">{reward.quantity}</span>
+                        <span className="text-preset-7-medium font-bold text-gray-950 md:text-preset-5-bold md:text-black">{reward.quantity}</span>
                         <span className="text-preset-7-regular text-gray-500">left</span>
                       </div>
                     </div>
@@ -248,22 +252,22 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
 
                   {/* Input section (결제 금액 인풋 영역) */}
                   {isSelected && !isOutOfStock && (
-                    <div className="py-[25px] px-6 md:p-6 border-t border-[#979797]/15 flex flex-col md:flex-row md:justify-between md:items-center gap-4 animate-fade-in">
+                    <div className="py-[25px] px-6 md:py-[25px] md:px-[29px] border-t border-[#979797]/15 flex flex-col md:flex-row md:justify-between md:items-center gap-4 animate-fade-in">
                       <span className="text-preset-8-regular md:text-preset-7-regular text-gray-500 text-center md:text-left">Enter your pledge</span>
-                      <div className="flex items-center justify-center gap-4">
-                        <div className="w-[100px] h-[48px] md:w-28 md:h-auto relative flex items-center">
-                          <span className="absolute left-6 text-black/25 md:text-gray-300 text-preset-8-bold md:text-preset-7-medium md:font-bold">$</span>
+                      <div className="flex items-center justify-center gap-4 md:gap-4">
+                        <div className="w-[100px] h-[48px] md:w-[100px] md:h-[48px] relative flex items-center">
+                          <span className="absolute left-6 text-black/25 md:text-gray-300 text-preset-8-bold md:text-preset-8-bold">$</span>
                           <input
                             type="number"
                             min={reward.minPledge}
                             value={pledgeValues[reward.id]}
                             onChange={(e) => handleInputChange(reward.id, e.target.value)}
-                            className="w-full h-full md:w-28 md:py-3 pl-9 pr-4 bg-white border border-gray-200 rounded-full text-preset-8-bold md:text-preset-6-bold text-black md:text-gray-950 focus:outline-none focus:border-green-400"
+                            className="w-full h-full md:w-[100px] md:h-[48px] pl-9 pr-4 bg-white border border-gray-200 rounded-full text-preset-8-bold md:text-preset-8-bold text-black md:text-gray-950 focus:outline-none focus:border-green-400"
                           />
                         </div>
                         <button
                           onClick={() => handlePledgeSubmit(reward.id)}
-                          className="w-[115px] h-[48px] flex items-center justify-center p-0 md:w-auto md:h-auto md:px-6 md:py-3 bg-green-400 hover:bg-green-700 text-white text-preset-8-bold md:text-preset-6-bold rounded-full transition-colors focus:outline-none"
+                          className="w-[115px] h-[48px] flex items-center justify-center p-0 md:w-[107px] md:h-[48px] md:p-0 bg-green-400 hover:bg-green-700 text-white text-preset-8-bold md:text-preset-8-bold rounded-full transition-colors focus:outline-none"
                         >
                           Continue
                         </button>

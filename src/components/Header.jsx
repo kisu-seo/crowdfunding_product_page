@@ -51,26 +51,26 @@ export default function Header() {
           {/* Menu Card (메뉴 카드) */}
           <nav
             id="mobile-nav"
-            className="absolute top-[84px] left-1/2 -translate-x-1/2 w-[327px] bg-white rounded-lg shadow-xl z-40 flex flex-col divide-y divide-gray-950/10 overflow-hidden lg:hidden animate-fade-in py-[33.5px] px-[24px]"
+            className="absolute top-[84px] left-1/2 -translate-x-1/2 w-[327px] md:w-[672px] bg-white rounded-lg shadow-xl z-40 flex flex-col divide-y divide-gray-950/10 overflow-hidden lg:hidden animate-fade-in py-[33.5px] md:py-[32px] px-[24px]"
             aria-label="모바일 주 메뉴"
           >
             <a
               href="#about"
-              className="block w-[279px] p-0 pb-[24px] text-left text-preset-5-medium text-gray-950 hover:bg-gray-50 transition-colors"
+              className="block w-[279px] p-0 pb-[24px] text-left text-preset-5-medium text-black hover:bg-gray-50 transition-colors"
               onClick={toggleMenu}
             >
               About
             </a>
             <a
               href="#discover"
-              className="block w-[279px] p-0 py-[24px] text-left text-preset-5-medium text-gray-950 hover:bg-gray-50 transition-colors"
+              className="block w-[279px] p-0 py-[24px] text-left text-preset-5-medium text-black hover:bg-gray-50 transition-colors"
               onClick={toggleMenu}
             >
               Discover
             </a>
             <a
               href="#get-started"
-              className="block w-[279px] p-0 pt-[24px] text-left text-preset-5-medium text-gray-950 hover:bg-gray-50 transition-colors"
+              className="block w-[279px] p-0 pt-[24px] text-left text-preset-5-medium text-black hover:bg-gray-50 transition-colors"
               onClick={toggleMenu}
             >
               Get Started
