@@ -111,35 +111,42 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
               }`}
             >
               <div 
-                className="p-6 flex gap-4 cursor-pointer hover:bg-gray-50/50"
+                className="py-[30px] px-6 flex flex-col rounded-[8px] cursor-pointer hover:bg-gray-50/50"
                 onClick={() => handleSelectReward('no_reward')}
               >
-                <input
-                  type="radio"
-                  id="pledge-no-reward"
-                  name="pledge-option"
-                  checked={activeRewardId === 'no_reward'}
-                  onChange={() => handleSelectReward('no_reward')}
-                  className="mt-1 w-5 h-5 accent-green-400 cursor-pointer"
-                />
-                <div>
-                  <label htmlFor="pledge-no-reward" className="text-preset-6-bold md:text-preset-5-bold text-gray-950 hover:text-green-400 cursor-pointer transition-colors block">
+                <div className="flex items-center gap-4">
+                  <div className="relative w-[24px] h-[24px] shrink-0 flex items-center justify-center">
+                    <input
+                      type="radio"
+                      id="pledge-no-reward"
+                      name="pledge-option"
+                      checked={activeRewardId === 'no_reward'}
+                      onChange={() => handleSelectReward('no_reward')}
+                      className="absolute inset-0 opacity-0 cursor-pointer z-10"
+                    />
+                    <div className="w-[24px] h-[24px] rounded-full border border-gray-200 flex items-center justify-center transition-colors">
+                      {activeRewardId === 'no_reward' && (
+                        <div className="w-[12px] h-[12px] rounded-full bg-green-400" />
+                      )}
+                    </div>
+                  </div>
+                  <label htmlFor="pledge-no-reward" className="text-[14px] font-bold text-black hover:text-green-400 cursor-pointer transition-colors block">
                     Pledge with no reward
                   </label>
-                  <p className="mt-3 text-preset-7-regular text-gray-500 md:text-preset-6-regular">
-                    Choose to support us without a reward if you simply believe in our project. As a backer,
-                    you will be signed up to receive product updates via email.
-                  </p>
                 </div>
+                <p className="mt-[32px] w-[231px] font-commissioner text-[14px] font-normal leading-[2.0] text-gray-500">
+                  Choose to support us without a reward if you simply believe in our project. As a backer,
+                  you will be signed up to receive product updates via email.
+                </p>
               </div>
 
               {/* Input section (결제 금액 인풋 영역) */}
               {activeRewardId === 'no_reward' && (
-                <div className="bg-gray-50/80 p-6 border-t border-gray-100 flex flex-col md:flex-row md:justify-between md:items-center gap-4 animate-fade-in">
-                  <span className="text-preset-7-regular text-gray-500 md:text-preset-6-regular text-center md:text-left">Enter your pledge</span>
+                <div className="p-6 border-0 flex flex-col md:flex-row md:justify-between md:items-center gap-4 animate-fade-in">
+                  <span className="text-[14px] font-normal leading-[2.0] text-gray-500 text-center md:text-left">Enter your pledge</span>
                   <div className="flex items-center justify-center gap-4">
                     <div className="relative flex items-center">
-                      <span className="absolute left-6 text-gray-300 font-bold text-sm">$</span>
+                      <span className="absolute left-6 text-gray-300 font-bold text-[14px]">$</span>
                       <input
                         type="number"
                         min="1"
@@ -176,58 +183,67 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
                   }`}
                 >
                   <div 
-                    className={`p-6 flex gap-4 ${isOutOfStock ? "cursor-not-allowed" : "cursor-pointer hover:bg-gray-50/50"}`}
+                    className={`py-[30px] px-6 flex flex-col rounded-[8px] ${isOutOfStock ? "cursor-not-allowed" : "cursor-pointer hover:bg-gray-50/50"}`}
                     onClick={() => !isOutOfStock && handleSelectReward(reward.id)}
                   >
-                    <input
-                      type="radio"
-                      id={`pledge-${reward.id}`}
-                      name="pledge-option"
-                      disabled={isOutOfStock}
-                      checked={isSelected}
-                      onChange={() => !isOutOfStock && handleSelectReward(reward.id)}
-                      className="mt-1 w-5 h-5 accent-green-400 cursor-pointer disabled:cursor-not-allowed"
-                    />
-                    <div className="flex-1">
-                      {/* Name and Pledge Limit */}
-                      <div className="flex flex-col md:flex-row md:items-center gap-2">
+                    <div className="flex items-center gap-4 w-full">
+                      <div className="relative w-[24px] h-[24px] shrink-0 flex items-center justify-center">
+                        <input
+                          type="radio"
+                          id={`pledge-${reward.id}`}
+                          name="pledge-option"
+                          disabled={isOutOfStock}
+                          checked={isSelected}
+                          onChange={() => !isOutOfStock && handleSelectReward(reward.id)}
+                          className="absolute inset-0 opacity-0 cursor-pointer z-10 disabled:cursor-not-allowed"
+                        />
+                        <div className={`w-[24px] h-[24px] rounded-full border flex items-center justify-center transition-colors ${
+                          isOutOfStock
+                            ? "border-gray-200/50"
+                            : "border-gray-200"
+                        }`}>
+                          {isSelected && !isOutOfStock && (
+                            <div className="w-[12px] h-[12px] rounded-full bg-green-400" />
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex-1 flex flex-col md:flex-row md:items-center gap-2">
                         <label 
                           htmlFor={`pledge-${reward.id}`} 
-                          className={`text-preset-6-bold md:text-preset-5-bold text-gray-950 transition-colors block ${
+                          className={`text-[14px] font-bold text-black transition-colors block ${
                             isOutOfStock ? "cursor-not-allowed" : "hover:text-green-400 cursor-pointer"
                           }`}
                         >
                           {reward.name}
                         </label>
-                        <span className="text-preset-7-medium md:text-preset-6-medium text-green-400">Pledge ${reward.minPledge} or more</span>
+                        <span className="text-[14px] font-medium leading-[1.2] text-green-400">Pledge ${reward.minPledge} or more</span>
                         
                         {/* Desktop Count (우측에 노출되는 수량 표시) */}
                         <div className="hidden md:flex items-center gap-1.5 ml-auto">
-                          <span className="text-preset-5-bold text-gray-950">{reward.quantity}</span>
-                          <span className="text-preset-7-regular text-gray-500">left</span>
+                          <span className="text-[14px] font-bold leading-[1.2] text-gray-950">{reward.quantity}</span>
+                          <span className="text-[14px] font-normal leading-[2.0] text-gray-500">left</span>
                         </div>
                       </div>
+                    </div>
 
-                      {/* Description */}
-                      <p className="mt-3 text-preset-7-regular text-gray-500 md:text-preset-6-regular">
-                        {reward.description}
-                      </p>
+                    <p className="mt-[32px] w-[231px] font-commissioner text-[14px] font-normal leading-[2.0] text-gray-500">
+                      {reward.description}
+                    </p>
 
-                      {/* Mobile Count (모바일 하단에 노출되는 수량 표시) */}
-                      <div className="mt-4 flex items-center gap-1.5 md:hidden">
-                        <span className="text-preset-4 text-gray-950">{reward.quantity}</span>
-                        <span className="text-preset-7-regular text-gray-500">left</span>
-                      </div>
+                    {/* Mobile Count (모바일 하단에 노출되는 수량 표시) */}
+                    <div className="mt-4 flex items-center gap-1.5 md:hidden">
+                      <span className="text-[18px] font-bold leading-[1.2] text-black">{reward.quantity}</span>
+                      <span className="text-[14px] font-normal leading-[2.0] text-gray-500">left</span>
                     </div>
                   </div>
 
                   {/* Input section (결제 금액 인풋 영역) */}
                   {isSelected && !isOutOfStock && (
-                    <div className="bg-gray-50/80 p-6 border-t border-gray-100 flex flex-col md:flex-row md:justify-between md:items-center gap-4 animate-fade-in">
-                      <span className="text-preset-7-regular text-gray-500 md:text-preset-6-regular text-center md:text-left">Enter your pledge</span>
+                    <div className="p-6 border-0 flex flex-col md:flex-row md:justify-between md:items-center gap-4 animate-fade-in">
+                      <span className="text-[14px] font-normal leading-[2.0] text-gray-500 text-center md:text-left">Enter your pledge</span>
                       <div className="flex items-center justify-center gap-4">
                         <div className="relative flex items-center">
-                          <span className="absolute left-6 text-gray-300 font-bold text-sm">$</span>
+                          <span className="absolute left-6 text-gray-300 font-bold text-[14px]">$</span>
                           <input
                             type="number"
                             min={reward.minPledge}

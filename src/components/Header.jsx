@@ -51,7 +51,7 @@ export default function Header() {
           {/* Menu Card (메뉴 카드) */}
           <nav
             id="mobile-nav"
-            className="fixed top-24 left-6 right-6 bg-white rounded-lg shadow-xl z-40 flex flex-col divide-y divide-gray-100 overflow-hidden md:hidden animate-fade-in"
+            className="absolute top-[84px] left-6 right-6 bg-white rounded-lg shadow-xl z-40 flex flex-col divide-y divide-gray-100 overflow-hidden md:hidden animate-fade-in py-[32px] px-[24px]"
             aria-label="모바일 주 메뉴"
           >
             <a
