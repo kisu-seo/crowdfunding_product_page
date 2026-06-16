@@ -1,17 +1,17 @@
 export default function Hero({ isBookmarked, onToggleBookmark, onBackProject }) {
   return (
-    <section className="relative bg-white rounded-lg border border-gray-200 px-6 pb-[36px] text-center md:px-12" aria-labelledby="hero-title">
+    <section className="relative bg-white rounded-lg border border-gray-200 px-6 pb-[36px] text-center md:px-[44px] md:pb-[46px]" aria-labelledby="hero-title">
       {/* === Mastercraft Logo Emblem (마스터크래프트 로고 엠블럼) === */}
       <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-md">
         <img src="/images/logo-mastercraft.svg" alt="Mastercraft 엠블럼" className="w-14 h-14" />
       </div>
 
       {/* === Product Title & Description (제품 타이틀 및 설명) === */}
-      <div className="pt-[52px] pb-[24px]">
-        <h1 id="hero-title" className="text-preset-4 text-black">
-          Mastercraft Bamboo <br /> Monitor Riser
+      <div className="pt-[52px] pb-[24px] md:pt-[60px] md:pb-[32px]">
+        <h1 id="hero-title" className="text-preset-4 md:text-preset-2 text-black md:whitespace-nowrap">
+          Mastercraft Bamboo <br className="md:hidden" /> Monitor Riser
         </h1>
-        <p className="mt-4 text-[14px] font-normal text-gray-500">
+        <p className="mt-4 md:mt-[8px] text-[14px] md:text-[16px] font-normal text-gray-500">
           A beautiful & handcrafted monitor stand to reduce neck and eye strain.
         </p>
       </div>
@@ -21,7 +21,7 @@ export default function Hero({ isBookmarked, onToggleBookmark, onBackProject }) 
         {/* Back this project Button (프로젝트 후원하기 버튼) */}
         <button
           onClick={onBackProject}
-          className="flex-1 md:flex-none md:px-10 py-4 bg-green-400 hover:bg-green-700 text-white text-preset-6-bold md:text-preset-5-bold rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50"
+          className="flex-none w-[214px] h-[56px] flex items-center justify-center p-0 md:w-[204px] md:h-[56px] bg-green-400 hover:bg-green-700 text-white text-preset-6-bold md:text-[16px] md:font-bold rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50"
         >
           Back this project
         </button>
@@ -31,7 +31,7 @@ export default function Hero({ isBookmarked, onToggleBookmark, onBackProject }) 
           onClick={onToggleBookmark}
           aria-pressed={isBookmarked}
           aria-label={isBookmarked ? "북마크됨" : "북마크하기"}
-          className="group flex items-center rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50 bg-gray-100 hover:opacity-90"
+          className="group flex items-center rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50 bg-gray-100 md:bg-gray-200 hover:opacity-90"
         >
           {/* Bookmark Icon SVG (북마크 아이콘) */}
           <div className="relative z-10 w-14 h-14 rounded-full flex items-center justify-center transition-colors duration-200">

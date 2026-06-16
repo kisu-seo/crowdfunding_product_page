@@ -48,21 +48,21 @@ The designs were created to the following widths:
 
 | Preset | Font Weight | Size | Line Height | Letter Spacing |
 | :--- | :--- | :--- | :--- | :--- |
-| **Text Preset 1** | Bold (700) | 56px | 120% | 0px |
-| **Text Preset 2** | Bold (700) | 36px | 120% | 0px |
-| **Text Preset 3** | Bold (700) | 24px | 120% | 0px |
-| **Text Preset 4** | Bold (700) | 20px | 120% | 0px |
-| **Text Preset 5 (Bold)** | Bold (700) | 16px | 120% | 0px |
-| **Text Preset 5 (Medium)** | Medium (500) | 16px | 120% | 0px |
-| **Text Preset 6 (Bold)** | Bold (700) | 15px | 120% | 0px |
-| **Text Preset 6 (Medium)** | Medium (500) | 15px | 120% | 0px |
-| **Text Preset 6 (Regular)** | Regular (400) | 15px | 200% | 0px |
-| **Text Preset 7 (Medium)** | Medium (500) | 13px | 120% | 0px |
-| **Text Preset 7 (Regular)** | Regular (400) | 13px | 200% | 0px |
-| **Text Preset 8 (Bold)** | Bold (700) | 11px | 120% | 0px |
-| **Text Preset 8 (Medium)** | Medium (500) | 11px | 120% | 0px |
-| **Text Preset 8 (Regular)** | Regular (400) | 11px | 120% | 0px |
-| **Text Preset 9** | Medium (500) | 11px | 120% | 0px |
+| **Text Preset 1** | Bold (700) | 32px | 125% | 0px |
+| **Text Preset 2** | Bold (700) | 28px | 125% | 0px |
+| **Text Preset 3** | Bold (700) | 24px | 125% | 0px |
+| **Text Preset 4** | Bold (700) | 20px | 125% | 0px |
+| **Text Preset 5 (Bold)** | Bold (700) | 18px | 125% | 0px |
+| **Text Preset 5 (Medium)** | Medium (500) | 18px | 125% | 0px |
+| **Text Preset 6 (Bold)** | Bold (700) | 16px | 125% | 0px |
+| **Text Preset 6 (Medium)** | Medium (500) | 16px | 125% | 0px |
+| **Text Preset 6 (Regular)** | Regular (400) | 16px | 200% | 0px |
+| **Text Preset 7 (Medium)** | Medium (500) | 15px | 125% | 0px |
+| **Text Preset 7 (Regular)** | Regular (400) | 15px | 200% | 0px |
+| **Text Preset 8 (Bold)** | Bold (700) | 14px | 125% | 0px |
+| **Text Preset 8 (Medium)** | Medium (500) | 14px | 125% | 0px |
+| **Text Preset 8 (Regular)** | Regular (400) | 14px | 175% | 0px |
+| **Text Preset 9** | Medium (500) | 13px | 125% | 0px |
 
 ## Spacing
 
