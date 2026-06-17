@@ -15,7 +15,7 @@ export default function SuccessModal({ isOpen, onClose }) {
         <div className="relative w-full max-w-md md:max-w-[540px] md:w-[540px] bg-white rounded-lg py-[34px] px-[24px] md:py-[52.5px] md:px-[48px] shadow-2xl z-10 text-center transition-all transform duration-300 animate-fade-in">
           
           <div className="flex justify-center mb-8">
-            <img src="/images/icon-check.svg" alt="성공 체크 표시" className="w-16 h-16 md:w-[90px] md:h-[90px]" />
+            <img src={`${import.meta.env.BASE_URL}images/icon-check.svg`} alt="성공 체크 표시" className="w-16 h-16 md:w-[90px] md:h-[90px]" />
           </div>
 
           <h2 id="success-title" className="text-preset-5-bold md:text-preset-3 text-black">

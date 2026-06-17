@@ -12,7 +12,7 @@ export default function Header() {
       {/* === Navigation Bar (네비게이션 바) === */}
       <div className="max-w-6xl mx-auto px-6 py-8 flex justify-between items-center md:px-12 md:pt-[32px] md:pb-0 min-[1028px]:max-w-[1109px] min-[1028px]:pt-[48px]">
         <a href="/" className="z-50" aria-label="Crowdfund 홈">
-          <img src="/images/logo.svg" alt="Crowdfund 로고" className="h-5" />
+          <img src={`${import.meta.env.BASE_URL}images/logo.svg`} alt="Crowdfund 로고" className="h-5" />
         </a>
 
         {/* Desktop Menu (데스크탑 메뉴) */}
@@ -31,7 +31,7 @@ export default function Header() {
           aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
         >
           <img
-            src={isOpen ? "/images/icon-close-menu.svg" : "/images/icon-hamburger.svg"}
+            src={isOpen ? `${import.meta.env.BASE_URL}images/icon-close-menu.svg` : `${import.meta.env.BASE_URL}images/icon-hamburger.svg`}
             alt=""
             className="w-[16px] h-[16px] object-contain"
           />

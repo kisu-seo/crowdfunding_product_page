@@ -85,7 +85,7 @@ export default function PledgeModal({ isOpen, onClose, rewards, selectedRewardId
               className="min-[1028px]:hover:scale-110 transition-transform p-2 focus:outline-none"
               aria-label="모달 창 닫기"
             >
-              <img src="/images/icon-close-modal.svg" alt="닫기 아이콘" className="w-4 h-4" />
+              <img src={`${import.meta.env.BASE_URL}images/icon-close-modal.svg`} alt="닫기 아이콘" className="w-4 h-4" />
             </button>
           </div>
 

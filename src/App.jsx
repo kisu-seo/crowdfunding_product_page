@@ -32,16 +32,16 @@ export default function App() {
       {/* === Hero Background Image (히어로 배경 이미지) === */}
       <div className="relative w-full h-[300px] md:h-[400px] overflow-hidden z-0">
         <picture>
-          <source srcSet="/images/image-hero-desktop.jpg" media="(min-min: 768px)" />
+          <source srcSet={`${import.meta.env.BASE_URL}images/image-hero-desktop.jpg`} media="(min-min: 768px)" />
           <img
-            src="/images/image-hero-mobile.jpg"
+            src={`${import.meta.env.BASE_URL}images/image-hero-mobile.jpg`}
             alt="Bamboo Monitor Riser 배경 이미지"
             className="w-full h-full object-cover object-center md:hidden"
           />
         </picture>
         {/* 모바일/데스크탑 분기를 Tailwind md:hidden 으로 처리하기 위해 img 태그를 별도 선언 */}
         <img
-          src="/images/image-hero-desktop.jpg"
+          src={`${import.meta.env.BASE_URL}images/image-hero-desktop.jpg`}
           alt="Bamboo Monitor Riser 배경 이미지"
           className="hidden md:block w-full h-full object-cover object-center"
         />
