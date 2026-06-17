@@ -10,16 +10,16 @@ export default function Header() {
   return (
     <header className="absolute top-0 left-0 w-full z-40 bg-gradient-to-b from-black/70 to-transparent transition-all duration-300">
       {/* === Navigation Bar (네비게이션 바) === */}
-      <div className="max-w-6xl mx-auto px-6 py-8 flex justify-between items-center md:px-12 md:pt-[32px] md:pb-0">
+      <div className="max-w-6xl mx-auto px-6 py-8 flex justify-between items-center md:px-12 md:pt-[32px] md:pb-0 min-[1028px]:max-w-[1109px] min-[1028px]:pt-[48px]">
         <a href="/" className="z-50" aria-label="Crowdfund 홈">
           <img src="/images/logo.svg" alt="Crowdfund 로고" className="h-5" />
         </a>
 
         {/* Desktop Menu (데스크탑 메뉴) */}
-        <nav className="hidden lg:flex gap-8 text-white text-preset-6-medium" aria-label="데스크탑 주 메뉴">
-          <a href="#about" className="hover:underline opacity-80 hover:opacity-100 transition-opacity">About</a>
-          <a href="#discover" className="hover:underline opacity-80 hover:opacity-100 transition-opacity">Discover</a>
-          <a href="#get-started" className="hover:underline opacity-80 hover:opacity-100 transition-opacity">Get Started</a>
+        <nav className="hidden lg:flex gap-8 text-white text-preset-6-medium min-[1028px]:w-[223px]" aria-label="데스크탑 주 메뉴">
+          <a href="#about" className="min-[1028px]:hover:underline opacity-80 min-[1028px]:hover:opacity-100 transition-opacity min-[1028px]:text-preset-9">About</a>
+          <a href="#discover" className="min-[1028px]:hover:underline opacity-80 min-[1028px]:hover:opacity-100 transition-opacity min-[1028px]:text-preset-9">Discover</a>
+          <a href="#get-started" className="min-[1028px]:hover:underline opacity-80 min-[1028px]:hover:opacity-100 transition-opacity min-[1028px]:text-preset-9">Get Started</a>
         </nav>
 
         {/* Mobile Toggle Button (모바일 토글 버튼) */}
@@ -56,21 +56,21 @@ export default function Header() {
           >
             <a
               href="#about"
-              className="block w-[279px] p-0 pb-[24px] text-left text-preset-5-medium text-black hover:bg-gray-50 transition-colors"
+              className="block w-[279px] p-0 pb-[24px] text-left text-preset-5-medium text-black transition-colors"
               onClick={toggleMenu}
             >
               About
             </a>
             <a
               href="#discover"
-              className="block w-[279px] p-0 py-[24px] text-left text-preset-5-medium text-black hover:bg-gray-50 transition-colors"
+              className="block w-[279px] p-0 py-[24px] text-left text-preset-5-medium text-black transition-colors"
               onClick={toggleMenu}
             >
               Discover
             </a>
             <a
               href="#get-started"
-              className="block w-[279px] p-0 pt-[24px] text-left text-preset-5-medium text-black hover:bg-gray-50 transition-colors"
+              className="block w-[279px] p-0 pt-[24px] text-left text-preset-5-medium text-black transition-colors"
               onClick={toggleMenu}
             >
               Get Started

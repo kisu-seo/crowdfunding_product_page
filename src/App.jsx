@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useProjectState } from './hooks/useProjectState';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
@@ -7,72 +7,22 @@ import PledgeModal from './components/PledgeModal';
 import SuccessModal from './components/SuccessModal';
 
 export default function App() {
-  // --- States (전역 프로젝트 상태 관리) ---
-  const [backedAmount, setBackedAmount] = useState(89914);
-  const [totalBackers, setTotalBackers] = useState(5007);
-  const [isBookmarked, setIsBookmarked] = useState(false);
-  const [isPledgeOpen, setIsPledgeOpen] = useState(false);
-  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
-  const [selectedRewardId, setSelectedRewardId] = useState('no_reward');
-  const [rewards, setRewards] = useState([
-    {
-      id: 'bamboo',
-      name: 'Bamboo Stand',
-      minPledge: 25,
-      description: "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.",
-      quantity: 101,
-    },
-    {
-      id: 'black_edition',
-      name: 'Black Edition Stand',
-      minPledge: 75,
-      description: "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.",
-      quantity: 64,
-    },
-    {
-      id: 'mahogany',
-      name: 'Mahogany Special Edition',
-      minPledge: 200,
-      description: "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.",
-      quantity: 0,
-    }
-  ]);
-
-  // --- Handlers (핸들러 함수) ---
-  const handleToggleBookmark = () => {
-    setIsBookmarked(prev => !prev);
-  };
-
-  const handleBackProject = () => {
-    setSelectedRewardId('no_reward');
-    setIsPledgeOpen(true);
-  };
-
-  const handleSelectReward = (id) => {
-    setSelectedRewardId(id);
-    setIsPledgeOpen(true);
-  };
-
-  const handleConfirmPledge = (rewardId, amount) => {
-    // 1. 모금액 및 기부자 수 업데이트
-    setBackedAmount(prev => prev + amount);
-    setTotalBackers(prev => prev + 1);
-
-    // 2. 선택한 리워드 수량 감소 (리워드가 없는 기부가 아닌 경우)
-    if (rewardId !== 'no_reward') {
-      setRewards(prevRewards =>
-        prevRewards.map(reward =>
-          reward.id === rewardId
-            ? { ...reward, quantity: Math.max(0, reward.quantity - 1) }
-            : reward
-        )
-      );
-    }
-
-    // 3. 기부 모달을 닫고 성공 완료 안내 모달 열기
-    setIsPledgeOpen(false);
-    setIsSuccessOpen(true);
-  };
+  // --- State & Handlers (커스텀 훅에서 전역 상태 및 핸들러 가져오기) ---
+  const {
+    backedAmount,
+    totalBackers,
+    isBookmarked,
+    isPledgeOpen,
+    isSuccessOpen,
+    selectedRewardId,
+    rewards,
+    handleToggleBookmark,
+    handleBackProject,
+    handleSelectReward,
+    handleConfirmPledge,
+    handleClosePledge,
+    handleCloseSuccess,
+  } = useProjectState();
 
   return (
     <div className="relative min-h-screen bg-gray-50/50 pb-[76px] font-commissioner antialiased">
@@ -89,7 +39,7 @@ export default function App() {
             className="w-full h-full object-cover object-center md:hidden"
           />
         </picture>
-        {/* Desktop Image explicitly rendered via tailwind utility for stability */}
+        {/* 모바일/데스크탑 분기를 Tailwind md:hidden 으로 처리하기 위해 img 태그를 별도 선언 */}
         <img
           src="/images/image-hero-desktop.jpg"
           alt="Bamboo Monitor Riser 배경 이미지"
@@ -98,23 +48,23 @@ export default function App() {
       </div>
 
       {/* === Main Container (메인 컨텐츠 레이아웃) === */}
-      <main className="relative z-10 max-w-2xl mx-auto px-6 md:px-0 -mt-[56px] md:-mt-[96px] space-y-6">
-        
+      <main className="relative z-10 max-w-2xl mx-auto px-6 md:px-0 -mt-[56px] md:-mt-[96px] min-[1028px]:-mt-[92px] min-[1028px]:max-w-[730px] space-y-6">
+
         {/* Hero Product Info Card (제품 개요 카드) */}
-        <Hero 
+        <Hero
           isBookmarked={isBookmarked}
           onToggleBookmark={handleToggleBookmark}
           onBackProject={handleBackProject}
         />
 
         {/* Campaign Stats Card (기부 모금 통계 카드) */}
-        <Stats 
+        <Stats
           backedAmount={backedAmount}
           totalBackers={totalBackers}
         />
 
         {/* Project About & Reward Selection Card (상세 설명 및 리워드 카드) */}
-        <About 
+        <About
           rewards={rewards}
           onSelectReward={handleSelectReward}
         />
@@ -124,17 +74,17 @@ export default function App() {
 
 
       {/* === Modals Layer (오버레이 모달 레이어) === */}
-      <PledgeModal 
+      <PledgeModal
         isOpen={isPledgeOpen}
-        onClose={() => setIsPledgeOpen(false)}
+        onClose={handleClosePledge}
         rewards={rewards}
         selectedRewardId={selectedRewardId}
         onConfirmPledge={handleConfirmPledge}
       />
 
-      <SuccessModal 
+      <SuccessModal
         isOpen={isSuccessOpen}
-        onClose={() => setIsSuccessOpen(false)}
+        onClose={handleCloseSuccess}
       />
     </div>
   );

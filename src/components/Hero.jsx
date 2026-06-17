@@ -1,6 +1,6 @@
 export default function Hero({ isBookmarked, onToggleBookmark, onBackProject }) {
   return (
-    <section className="relative bg-white rounded-lg border border-gray-200 px-6 pb-[36px] text-center md:px-[44px] md:pb-[46px]" aria-labelledby="hero-title">
+    <section className="relative bg-white rounded-lg border border-gray-200 px-6 pb-[36px] text-center md:px-[44px] md:pb-[46px] min-[1028px]:!px-[48px]" aria-labelledby="hero-title">
       {/* === Mastercraft Logo Emblem (마스터크래프트 로고 엠블럼) === */}
       <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-md">
         <img src="/images/logo-mastercraft.svg" alt="Mastercraft 엠블럼" className="w-14 h-14" />
@@ -21,7 +21,7 @@ export default function Hero({ isBookmarked, onToggleBookmark, onBackProject }) 
         {/* Back this project Button (프로젝트 후원하기 버튼) */}
         <button
           onClick={onBackProject}
-          className="flex-none w-[214px] h-[56px] flex items-center justify-center p-0 md:w-[204px] md:h-[56px] bg-green-400 hover:bg-green-700 text-white text-preset-6-bold md:text-[16px] md:font-bold rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50"
+          className="flex-none w-[214px] h-[56px] flex items-center justify-center p-0 md:w-[204px] md:h-[56px] bg-green-400 min-[1028px]:hover:bg-green-700 text-white text-preset-6-bold md:text-[16px] md:font-bold rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50"
         >
           Back this project
         </button>
@@ -31,24 +31,37 @@ export default function Hero({ isBookmarked, onToggleBookmark, onBackProject }) 
           onClick={onToggleBookmark}
           aria-pressed={isBookmarked}
           aria-label={isBookmarked ? "북마크됨" : "북마크하기"}
-          className="group flex items-center rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50 bg-gray-100 md:bg-gray-200 hover:opacity-90"
+          className={`group flex items-center rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50 min-[1028px]:focus:!ring-0 bg-gray-100 md:bg-gray-200 min-[1028px]:hover:opacity-90 ${
+            isBookmarked 
+              ? "min-[1028px]:!bg-green-50 min-[1028px]:hover:!bg-green-50" 
+              : "min-[1028px]:hover:!bg-gray-200"
+          }`}
         >
-          {/* Bookmark Icon SVG (북마크 아이콘) */}
-          <div className="relative z-10 w-14 h-14 rounded-full flex items-center justify-center transition-colors duration-200">
+          <div className={`relative z-10 w-14 h-14 rounded-full flex items-center justify-center transition-colors duration-200 ${
+            isBookmarked 
+              ? "min-[1028px]:group-hover:!bg-green-700" 
+              : "min-[1028px]:group-hover:!bg-gray-500"
+          }`}>
             <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
               <g fill="none" fill-rule="evenodd">
                 {/* Bookmarked 상태에 따라 배경 원 색상 변경 */}
                 <circle 
-                  className="transition-colors duration-200"
-                  fill={isBookmarked ? "#147A73" : "#2F2F2F"} 
+                  className={`transition-colors duration-200 ${
+                    isBookmarked 
+                      ? "fill-[#147A73] min-[1028px]:group-hover:!fill-green-700" 
+                      : "fill-[#2F2F2F] min-[1028px]:group-hover:!fill-gray-500"
+                  }`}
                   cx="28" 
                   cy="28" 
                   r="28"
                 />
                 {/* Bookmarked 상태에 따라 리본 색상 변경 */}
                 <path 
-                  className="transition-colors duration-200"
-                  fill={isBookmarked ? "#FFFFFF" : "#B1B1B1"} 
+                  className={`transition-colors duration-200 ${
+                    isBookmarked 
+                      ? "fill-white min-[1028px]:group-hover:!fill-white" 
+                      : "fill-[#B1B1B1]"
+                  }`}
                   d="M23 19v18l5-5.058L33 37V19z"
                 />
               </g>
@@ -58,7 +71,7 @@ export default function Hero({ isBookmarked, onToggleBookmark, onBackProject }) 
           {/* Bookmark Text (북마크 텍스트 - 데스크탑에만 노출) */}
           <span 
             className={`hidden md:inline pl-4 pr-6 text-preset-6-bold transition-colors duration-200 ${
-              isBookmarked ? "text-green-700" : "text-gray-500"
+              isBookmarked ? "text-green-700 min-[1028px]:!text-green-700" : "text-gray-500"
             }`}
           >
             {isBookmarked ? "Bookmarked" : "Bookmark"}

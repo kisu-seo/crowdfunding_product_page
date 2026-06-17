@@ -14,27 +14,23 @@ export default function SuccessModal({ isOpen, onClose }) {
       <div className="flex min-h-screen items-center md:items-start justify-center p-6 md:pt-[460px] md:pb-6">
         <div className="relative w-full max-w-md md:max-w-[540px] md:w-[540px] bg-white rounded-lg py-[34px] px-[24px] md:py-[52.5px] md:px-[48px] shadow-2xl z-10 text-center transition-all transform duration-300 animate-fade-in">
           
-          {/* Check Icon (체크 마크 아이콘) */}
           <div className="flex justify-center mb-8">
             <img src="/images/icon-check.svg" alt="성공 체크 표시" className="w-16 h-16 md:w-[90px] md:h-[90px]" />
           </div>
 
-          {/* Heading (완료 헤더) */}
           <h2 id="success-title" className="text-preset-5-bold md:text-preset-3 text-black">
             Thanks for your support!
           </h2>
 
-          {/* Info Text (안내 본문) */}
           <p className="mt-4 text-preset-8-regular md:text-preset-6-regular text-gray-500 md:w-[444px] md:mx-auto">
             Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
             an email once our campaign is completed.
           </p>
 
-          {/* Button (확인 버튼) */}
           <div className="mt-8">
             <button
               onClick={onClose}
-              className="px-8 py-3.5 bg-green-400 hover:bg-green-700 text-white text-preset-7-medium md:text-preset-8-bold font-bold rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50"
+              className="px-8 py-3.5 bg-green-400 min-[1028px]:hover:bg-green-700 text-white text-preset-7-medium md:text-preset-8-bold font-bold rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/50"
             >
               Got it!
             </button>
